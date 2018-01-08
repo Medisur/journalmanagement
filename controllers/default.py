@@ -88,7 +88,7 @@ def getxml():
     cadenacategorias=cadenacategorias.replace(")","")
     listcategories=cadenacategorias.split(",")
     for item in listcategories:
-        if item<>"":
+        if item != "":
                     categiterable.append(lb.E.subject("%s"%item))
     #
     #Insercion de espacio de nombres

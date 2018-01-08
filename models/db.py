@@ -12,7 +12,7 @@ from gluon.tools import Auth
 # File is released under public domain and you can use without limitations
 # -------------------------------------------------------------------------
 
-if request.global_settings.web2py_version < "2.15.5":
+if request.global_settings.web2py_version and request.global_settings.web2py_version < "2.15.5":
     raise HTTP(500, "Requires web2py 2.15.5 or newer")
 
 # -------------------------------------------------------------------------
