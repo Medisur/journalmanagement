@@ -20,7 +20,6 @@ install:
    - sleep 5 # give the webserver time to startup
    # Call for db building
    - wget http://127.0.0.1:8000/journalmanagement/
-   - sleep 5 # give the db time to populate
 
 
 script: py.test -x -v -s applications/journalmanagement/tests
