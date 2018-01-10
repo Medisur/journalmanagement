@@ -20,4 +20,4 @@ install:
    - sleep 5 # give the webserver time to startup
 
 
-script: py.test -x -v -s applications/journalmanagement/test
+script: py.test -x -v -s applications/journalmanagement/tests
