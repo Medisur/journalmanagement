@@ -12,6 +12,7 @@ automatic appname discovering.
 import os
 import signal
 import subprocess
+import urllib
 from time import sleep
 
 import pytest
@@ -44,6 +45,9 @@ def run_around_tests():
     pytest.web2py_process = subprocess.Popen(cmd, stdout=subprocess.PIPE,
                            shell=True, preexec_fn=os.setsid)
     sleep(5)
+    # request for populate DB and avoid sqlite errors
+    with urllib.request.urlopen(baseurl(appname())) as response:
+        response.read()
 
 def pytest_sessionfinish(session, exitstatus):
     """ whole test run finishes. """
