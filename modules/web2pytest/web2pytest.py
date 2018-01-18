@@ -20,6 +20,9 @@ default_filename = "web2py_test_indicator"
 
 _test_filename = None
 
+WEB2PY_ENV = "WEB2PY_ENV"
+WEB2PY_TEST_ENV = "TEST"
+
 
 def testfile_name(appname=None):
     global _test_filename
@@ -84,3 +87,12 @@ def is_running_under_test(request, appname):
         return True
     else:
         return False
+
+def set_test_environment():
+    os.environ[WEB2PY_ENV] = WEB2PY_TEST_ENV
+
+def close_test_environment():
+    os.environ[WEB2PY_ENV] = ""
+
+def is_test_environment():
+    return os.environ[WEB2PY_ENV] == WEB2PY_TEST_ENV
