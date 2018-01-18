@@ -95,4 +95,8 @@ def close_test_environment():
     os.environ[WEB2PY_ENV] = ""
 
 def is_test_environment():
-    return os.environ[WEB2PY_ENV] == WEB2PY_TEST_ENV
+    try:
+        is_test_environment = os.environ[WEB2PY_ENV] == WEB2PY_TEST_ENV
+    except:
+        is_test_environment = False
+    return is_test_environment
