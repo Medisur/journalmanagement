@@ -55,7 +55,6 @@ def run_around_tests():
 
     web2pytest.set_test_environment(pytest.web2py_environment)
 
-    print ("akak1",TEST_DB_DIR)
     if not os.path.exists(TEST_DB_DIR):
         os.makedirs(TEST_DB_DIR)
 
