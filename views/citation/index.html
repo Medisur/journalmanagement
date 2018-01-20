@@ -40,42 +40,42 @@ response.files.insert(6, URL('static', 'css/citations-form.css'))
                 <label class="control-label" for="selectCitationType">Type</label>
                 <div class="controls">
                   <select id="selectCitationType">
-                    <option disabled selected value> -- select an option -- </option>
-                    <option id="article" value="article">article</option>
-                    <option id="article-journal" value="article-journal">article-journal</option>
-                    <option id="article-magazine" value="article-magazine">article-magazine</option>
-                    <option id="article-newspaper" value="article-newspaper">article-newspaper</option>
-                    <option id="bill" value="bill">bill</option>
-                    <option id="book" value="book">book</option>
-                    <option id="broadcast" value="broadcast">broadcast</option>
-                    <option id="chapter" value="chapter">chapter</option>
-                    <option id="dataset" value="dataset">dataset</option>
-                    <option id="entry" value="entry">entry</option>
-                    <option id="entry-dictionary" value="entry-dictionary">entry-dictionary</option>
-                    <option id="entry-encyclopedia" value="entry-encyclopedia">entry-encyclopedia</option>
-                    <option id="figure" value="figure">figure</option>
-                    <option id="graphic" value="graphic">graphic</option>
-                    <option id="interview" value="interview">interview</option>
-                    <option id="legal_case" value="legal_case">legal_case</option>
-                    <option id="legislation" value="legislation">legislation</option>
-                    <option id="manuscript" value="manuscript">manuscript</option>
-                    <option id="map" value="map">map</option>
-                    <option id="motion_picture" value="motion_picture">motion_picture</option>
-                    <option id="musical_score" value="musical_score">musical_score</option>
-                    <option id="pamphlet" value="pamphlet">pamphlet</option>
-                    <option id="paper-conference" value="paper-conference">paper-conference</option>
-                    <option id="patent" value="patent">patent</option>
-                    <option id="personal_communication" value="personal_communication">personal_communication</option>
-                    <option id="post" value="post">post</option>
-                    <option id="post-weblog" value="post-weblog">post-weblog</option>
-                    <option id="report" value="report">report</option>
-                    <option id="review" value="review">review</option>
-                    <option id="review-book" value="review-book">review-book</option>
-                    <option id="song" value="song">song</option>
-                    <option id="speech" value="speech">speech</option>
-                    <option id="thesis" value="thesis">thesis</option>
-                    <option id="treaty" value="treaty">treaty</option>
-                    <option id="webpage" value="webpage">webpage</option>
+                    <option disabled selected value> -- {{=T("Select an option")}} -- </option>
+                    <option id="article" value="article">{{=T("Article")}}</option>
+                    <option id="article-journal" value="article-journal">{{=T("Journal article")}}</option>
+                    <option id="article-magazine" value="article-magazine">{{=T("Magazine article")}}</option>
+                    <option id="article-newspaper" value="article-newspaper">{{=T("Newspaper article")}}</option>
+                    <option id="bill" value="bill">{{=T("Bill")}}</option>
+                    <option id="book" value="book">{{=T("Book")}}</option>
+                    <option id="broadcast" value="broadcast">{{=T("Broadcast")}}</option>
+                    <option id="chapter" value="chapter">{{=T("Chapter")}}</option>
+                    <option id="dataset" value="dataset">{{=T("Dataset")}}</option>
+                    <option id="entry" value="entry">{{=T("Entry")}}</option>
+                    <option id="entry-dictionary" value="entry-dictionary">{{=T("Entry dictionary")}}</option>
+                    <option id="entry-encyclopedia" value="entry-encyclopedia">{{=T("Entry encyclopedia")}}</option>
+                    <option id="figure" value="figure">{{=T("Figure")}}</option>
+                    <option id="graphic" value="graphic">{{=T("Graphic")}}</option>
+                    <option id="interview" value="interview">{{=T("Interview")}}</option>
+                    <option id="legal_case" value="legal_case">{{=T("Legal case")}}</option>
+                    <option id="legislation" value="legislation">{{=T("Legislation")}}</option>
+                    <option id="manuscript" value="manuscript">{{=T("Manuscript")}}</option>
+                    <option id="map" value="map">{{=T("Map")}}</option>
+                    <option id="motion_picture" value="motion_picture">{{=T("Motion picture")}}</option>
+                    <option id="musical_score" value="musical_score">{{=T("Musical score")}}</option>
+                    <option id="pamphlet" value="pamphlet">{{=T("Pamphlet")}}</option>
+                    <option id="paper-conference" value="paper-conference">{{=T("Paper conference")}}</option>
+                    <option id="patent" value="patent">{{=T("Patent")}}</option>
+                    <option id="personal_communication" value="personal_communication">{{=T("Personal comunication")}}</option>
+                    <option id="post" value="post">{{=T("Post")}}</option>
+                    <option id="post-weblog" value="post-weblog">{{=T("Post weblog")}}</option>
+                    <option id="report" value="report">{{=T("Report")}}</option>
+                    <option id="review" value="review">{{=T("Review")}}</option>
+                    <option id="review-book" value="review-book">{{=T("Review Book")}}</option>
+                    <option id="song" value="song">{{=T("Song")}}</option>
+                    <option id="speech" value="speech">{{=T("Speech")}}</option>
+                    <option id="thesis" value="thesis">{{=T("Thesis")}}</option>
+                    <option id="treaty" value="treaty">{{=T("Treaty")}}</option>
+                    <option id="webpage" value="webpage">{{=T("Webpage")}}</option>
                   </select>
                 </div>
               </div>
@@ -84,86 +84,86 @@ response.files.insert(6, URL('static', 'css/citations-form.css'))
                 <label class="control-label" for="selectCitationPart">Parte</label>
                 <div class="controls">
                   <select id="selectCitationPart">
-                    <option id="author" value="author">authors</option>
-                    <option id="categories" value="categories">categories</option>
-                    <option id="language" value="language">language</option>
-                    <option id="journalAbbreviation" value="journalAbbreviation">journalAbbreviation</option>
-                    <option id="shortTitle" value="shortTitle">shortTitle</option>
-                    <option id="collection-editor" value="collection-editor">collection-editor</option>
-                    <option id="composer" value="composer">composer</option>
-                    <option id="container-author" value="container-author">container-author</option>
-                    <option id="director" value="director">director</option>
-                    <option id="editor" value="editor">editor</option>
-                    <option id="editorial-director" value="editorial-director">editorial-director</option>
-                    <option id="interviewer" value="interviewer">interviewer</option>
-                    <option id="illustrator" value="illustrator">illustrator</option>
-                    <option id="original-author" value="original-author">original-author</option>
-                    <option id="recipient" value="recipient">recipient</option>
-                    <option id="reviewed-author" value="reviewed-author">reviewed-author</option>
-                    <option id="translator" value="translator">translator</option>
-                    <option id="accessed" value="accessed">accessed</option>
-                    <option id="container" value="container">container</option>
-                    <option id="event-date" value="event-date">event-date</option>
-                    <option id="issued" value="issued">issued</option>
-                    <option id="original-date" value="original-date">original-date</option>
-                    <option id="submitted" value="submitted">submitted</option>
-                    <option id="abstract" value="abstract">abstract</option>
-                    <option id="annote" value="annote">annote</option>
-                    <option id="archive" value="archive">archive</option>
-                    <option id="archive_location" value="archive_location">submitted</option>
-                    <option id="archive-place" value="archive-place">archive-place</option>
-                    <option id="authority" value="authority">authority</option>
-                    <option id="call-number" value="call-number">call-number</option>
-                    <option id="chapter-number" value="chapter-number">chapter-number</option>
-                    <option id="citation-number" value="citation-number">citation-number</option>
-                    <option id="citation-label" value="citation-label">citation-label</option>
-                    <option id="collection-number" value="collection-number">collection-number</option>
-                    <option id="collection-title" value="collection-title">collection-title</option>
-                    <option id="container-title" value="container-title">container-title</option>
-                    <option id="container-title-short" value="container-title-short">container-title-short</option>
-                    <option id="dimensions" value="dimensions">dimensions</option>
-                    <option id="DOI" value="DOI">DOI</option>
-                    <option id="edition" value="edition">edition</option>
-                    <option id="event" value="event">event</option>
-                    <option id="event-place" value="event-place">event-place</option>
-                    <option id="first-reference-note-number" value="first-reference-note-number">first-reference-note-number</option>
-                    <option id="genre" value="genre">genre</option>
-                    <option id="ISBN" value="ISBN">ISBN</option>
-                    <option id="ISSN" value="ISSN">ISSN</option>
-                    <option id="issue" value="issue">issue</option>
-                    <option id="jurisdiction" value="jurisdiction">jurisdiction</option>
-                    <option id="keyword" value="keyword">keyword</option>
-                    <option id="locator" value="locator">locator</option>
-                    <option id="medium" value="medium">medium</option>
-                    <option id="note" value="note">note</option>
-                    <option id="number" value="number">number</option>
-                    <option id="number-of-pages" value="number-of-pages">number-of-pages</option>
-                    <option id="number-of-volumes" value="number-of-volumes">number-of-volumes</option>
-                    <option id="original-publisher" value="original-publisher">original-publisher</option>
-                    <option id="original-publisher-place" value="original-publisher-place">original-publisher-place</option>
-                    <option id="original-title" value="original-title">original-title</option>
-                    <option id="page" value="page">page</option>
-                    <option id="page-first" value="page-first">page-first</option>
-                    <option id="PMCID" value="PMCID">PMCID</option>
-                    <option id="PMID" value="PMID">PMID</option>
-                    <option id="publisher" value="publisher">publisher</option>
-                    <option id="publisher-place" value="publisher-place">publisher-place</option>
-                    <option id="references" value="references">references</option>
-                    <option id="reviewed-title" value="reviewed-title">reviewed-title</option>
-                    <option id="scale" value="scale">scale</option>
-                    <option id="section" value="section">section</option>
-                    <option id="source" value="source">source</option>
-                    <option id="status" value="status">status</option>
-                    <option id="title" value="title">title</option>
-                    <option id="title-short" value="title-short">title-short</option>
-                    <option id="URL" value="URL">URL</option>
-                    <option id="version" value="version">version</option>
-                    <option id="volume" value="volume">volume</option>
-                    <option id="year-suffix" value="year-suffix">year-suffix</option>
+                    <option id="author" value="author">{{=T("Authors")}}</option>
+                    <option id="categories" value="categories">{{=T("Categories")}}</option>
+                    <option id="language" value="language">{{=T("Language")}}</option>
+                    <option id="journalAbbreviation" value="journalAbbreviation">{{=T("journal abbreviation")}}</option>
+                    <option id="shortTitle" value="shortTitle">{{=T("Short title")}}</option>
+                    <option id="collection-editor" value="collection-editor">{{=T("Collection editor")}}</option>
+                    <option id="composer" value="composer">{{=T("Composer")}}</option>
+                    <option id="container-author" value="container-author">{{=T("Container author")}}</option>
+                    <option id="director" value="director">{{=T("Director")}}</option>
+                    <option id="editor" value="editor">{{=T("Editor")}}</option>
+                    <option id="editorial-director" value="editorial-director">{{=T("Editorial director")}}</option>
+                    <option id="interviewer" value="interviewer">{{=T("Interviewer")}}</option>
+                    <option id="illustrator" value="illustrator">{{=T("Illustrator")}}</option>
+                    <option id="original-author" value="original-author">{{=T("Original author")}}</option>
+                    <option id="recipient" value="recipient">{{=T("Recipient")}}</option>
+                    <option id="reviewed-author" value="reviewed-author">{{=T("Reviewed author")}}</option>
+                    <option id="translator" value="translator">{{=T("Translator")}}</option>
+                    <option id="accessed" value="accessed">{{=T("Accessed")}}</option>
+                    <option id="container" value="container">{{=T("Container")}}</option>
+                    <option id="event-date" value="event-date">{{=T("Event date")}}</option>
+                    <option id="issued" value="issued">{{=T("Issued")}}</option>
+                    <option id="original-date" value="original-date">{{=T("Original date")}}</option>
+                    <option id="submitted" value="submitted">{{=T("Submitted")}}</option>
+                    <option id="abstract" value="abstract">{{=T("Abstract")}}</option>
+                    <option id="annote" value="annote">{{=T("Annote")}}</option>
+                    <option id="archive" value="archive">{{=T("Archive")}}</option>
+                    <option id="archive_location" value="archive_location">{{=T("Submitted")}}</option>
+                    <option id="archive-place" value="archive-place">{{=T("Archive place")}}</option>
+                    <option id="authority" value="authority">{{=T("Authority")}}</option>
+                    <option id="call-number" value="call-number">{{=T("Call number")}}</option>
+                    <option id="chapter-number" value="chapter-number">{{=T("Chapter number")}}</option>
+                    <option id="citation-number" value="citation-number">{{=T("Citation number")}}</option>
+                    <option id="citation-label" value="citation-label">{{=T("Citation label")}}</option>
+                    <option id="collection-number" value="collection-number">{{=T("Collection number")}}</option>
+                    <option id="collection-title" value="collection-title">{{=T("Collection title")}}</option>
+                    <option id="container-title" value="container-title">{{=T("Container title")}}</option>
+                    <option id="container-title-short" value="container-title-short">{{=T("Container title short")}}</option>
+                    <option id="dimensions" value="dimensions">{{=T("Dimensions")}}</option>
+                    <option id="DOI" value="DOI">{{=T("DOI")}}</option>
+                    <option id="edition" value="edition">{{=T("Edition")}}</option>
+                    <option id="event" value="event">{{=T("Event")}}</option>
+                    <option id="event-place" value="event-place">{{=T("Event place")}}</option>
+                    <option id="first-reference-note-number" value="first-reference-note-number">{{=T("First reference note number")}}</option>
+                    <option id="genre" value="genre">{{=T("Genere")}}</option>
+                    <option id="ISBN" value="ISBN">{{=T("ISBN")}}</option>
+                    <option id="ISSN" value="ISSN">{{=T("ISSN")}}</option>
+                    <option id="issue" value="issue">{{=T("Issue")}}</option>
+                    <option id="jurisdiction" value="jurisdiction">{{=T("Jurisdiction")}}</option>
+                    <option id="keyword" value="keyword">{{=T("Keyword")}}</option>
+                    <option id="locator" value="locator">{{=T("Locator")}}</option>
+                    <option id="medium" value="medium">{{=T("Language")}}</option>
+                    <option id="note" value="note">{{=T("Note")}}</option>
+                    <option id="number" value="number">{{=T("Number")}}</option>
+                    <option id="number-of-pages" value="number-of-pages">{{=T("Number of pages")}}</option>
+                    <option id="number-of-volumes" value="number-of-volumes">{{=T("Number of volumes")}}</option>
+                    <option id="original-publisher" value="original-publisher">{{=T("Original publisher")}}</option>
+                    <option id="original-publisher-place" value="original-publisher-place">{{=T("Original publisher place")}}</option>
+                    <option id="original-title" value="original-title">{{=T("Original title")}}</option>
+                    <option id="page" value="page">{{=T("Page")}}</option>
+                    <option id="page-first" value="page-first">{{=T("Page first")}}</option>
+                    <option id="PMCID" value="PMCID">{{=T("PMCID")}}</option>
+                    <option id="PMID" value="PMID">{{=T("PMID")}}</option>
+                    <option id="publisher" value="publisher">{{=T("Publisher")}}</option>
+                    <option id="publisher-place" value="publisher-place">{{=T("Publisher place")}}</option>
+                    <option id="references" value="references">{{=T("References")}}</option>
+                    <option id="reviewed-title" value="reviewed-title">{{=T("Reviewed title")}}</option>
+                    <option id="scale" value="scale">{{=T("Scale")}}</option>
+                    <option id="section" value="section">{{=T("Section")}}</option>
+                    <option id="source" value="source">{{=T("Source")}}</option>
+                    <option id="status" value="status">{{=T("Status")}}</option>
+                    <option id="title" value="title">{{=T("Title")}}</option>
+                    <option id="title-short" value="title-short">{{=T("Short title")}}</option>
+                    <option id="URL" value="URL">{{=T("URL")}}</option>
+                    <option id="version" value="version">{{=T("Version")}}</option>
+                    <option id="volume" value="volume">{{=T("Volume")}}</option>
+                    <option id="year-suffix" value="year-suffix">{{=T("Year suffix")}}</option>
 
                   </select>
 
-                  <button id="btnAddCitationPart" class="btn">Add</button>
+                  <button id="btnAddCitationPart" class="btn">{{=T("Add")}}</button>
                 </div>
               </div>
 
