@@ -5,7 +5,6 @@
 # Auth is for authenticaiton and access control
 # -------------------------------------------------------------------------
 import os
-from tempfile import mkdtemp
 
 from applications.journalmanagement.modules.web2pytest import web2pytest
 from gluon.contrib.appconfig import AppConfig
@@ -38,7 +37,8 @@ db = DAL(configuration.get('db.uri'),
          pool_size=configuration.get('db.pool_size'),
          migrate_enabled=configuration.get('db.migrate'),
          check_reserved=['all'],
-         folder= mkdtemp() if is_test_environment else None)
+         folder= os.path.join(request.folder,"databases", "test") if is_test_environment else None
+         )
 
 # -------------------------------------------------------------------------
 # by default give a view/generic.extension to all actions from localhost

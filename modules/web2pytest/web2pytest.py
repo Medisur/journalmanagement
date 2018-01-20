@@ -88,11 +88,11 @@ def is_running_under_test(request, appname):
     else:
         return False
 
-def set_test_environment():
-    os.environ[WEB2PY_ENV] = WEB2PY_TEST_ENV
+def set_test_environment(environment):
+    environment[WEB2PY_ENV] = WEB2PY_TEST_ENV
 
-def close_test_environment():
-    os.environ[WEB2PY_ENV] = ""
+def close_test_environment(environment):
+    environment[WEB2PY_ENV] = ""
 
 def is_test_environment():
     try:
