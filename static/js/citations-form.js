@@ -503,7 +503,7 @@ $("#citations-list").on("click",".citation-edit", function (e) {
             continue;
         }
 
-        var label = partName;
+        var label = $('#selectCitationPart option[value="'+partName+'"]').text();
         var partType = getCitationPartType(partName);
         var partValue = citation.parts[partName];
 
