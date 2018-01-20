@@ -73,6 +73,7 @@ def run_around_tests():
 def pytest_sessionfinish(session, exitstatus):
     """ whole test run finishes. """
     os.killpg(os.getpgid(pytest.web2py_process.pid), signal.SIGTERM)
+    sleep(5)
     web2pytest.close_test_environment(pytest.web2py_environment)
     if os.path.exists(TEST_DB_DIR):
         shutil.rmtree(TEST_DB_DIR)
@@ -84,9 +85,6 @@ def baseurl(appname):
     '''
 
     return 'http://localhost:%s/%s' % (WEB2PY_TEST_PORT, appname)
-
-
-
 
 @pytest.fixture(scope='session', autouse=True)
 def create_database(web2py):
