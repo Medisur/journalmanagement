@@ -4,6 +4,9 @@
 # AppConfig configuration made easy. Look inside private/appconfig.ini
 # Auth is for authenticaiton and access control
 # -------------------------------------------------------------------------
+import os
+
+from applications.journalmanagement.modules.web2pytest import web2pytest
 from gluon.contrib.appconfig import AppConfig
 from gluon.tools import Auth
 
@@ -24,31 +27,18 @@ if request.global_settings.web2py_version and request.global_settings.web2py_ver
 # -------------------------------------------------------------------------
 # once in production, remove reload=True to gain full speed
 # -------------------------------------------------------------------------
-configuration = AppConfig(reload=True)
 
-if not request.env.web2py_runtime_gae:
-    # ---------------------------------------------------------------------
-    # if NOT running on Google App Engine use SQLite or other DB
-    # ---------------------------------------------------------------------
-    db = DAL(configuration.get('db.uri'),
-             pool_size=configuration.get('db.pool_size'),
-             migrate_enabled=configuration.get('db.migrate'),
-             check_reserved=['all'])
-else:
-    # ---------------------------------------------------------------------
-    # connect to Google BigTable (optional 'google:datastore://namespace')
-    # ---------------------------------------------------------------------
-    db = DAL('google:datastore+ndb')
-    # ---------------------------------------------------------------------
-    # store sessions and tickets there
-    # ---------------------------------------------------------------------
-    session.connect(request, response, db=db)
-    # ---------------------------------------------------------------------
-    # or store session in Memcache, Redis, etc.
-    # from gluon.contrib.memdb import MEMDB
-    # from google.appengine.api.memcache import Client
-    # session.connect(request, response, db = MEMDB(Client()))
-    # ---------------------------------------------------------------------
+is_test_environment = web2pytest.is_test_environment()
+config_file = os.path.join(request.folder,"private","test_appconfig.ini") if is_test_environment else None
+
+configuration = AppConfig(reload=True, configfile=config_file)
+
+db = DAL(configuration.get('db.uri'),
+         pool_size=configuration.get('db.pool_size'),
+         migrate_enabled=configuration.get('db.migrate'),
+         check_reserved=['all'],
+         folder= os.path.join(request.folder,"databases", "test") if is_test_environment else None
+         )
 
 # -------------------------------------------------------------------------
 # by default give a view/generic.extension to all actions from localhost

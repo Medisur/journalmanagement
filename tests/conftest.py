@@ -10,20 +10,29 @@ automatic appname discovering.
 '''
 
 import os
+import shutil
+import signal
+import subprocess
+import urllib
+from time import sleep
+
 import pytest
 import sys
 
+from applications.journalmanagement.modules.web2pytest import web2pytest
+
 sys.path.insert(0, '')
+WEB2PY_TEST_PORT = 8081
 
+def pytest_namespace():
+    return {'web2py_process': None,
+            'web2py_environment': None
+            }
 
-@pytest.fixture(scope='session')
-def baseurl(appname):
-    '''The base url to call your application.
-    Change you port number as necessary.
-    '''
-
-    return 'http://localhost:8000/%s' % appname
-
+def get_web2py_path():
+    tests_dir = os.path.dirname(os.path.abspath(__file__))
+    a = tests_dir.split("/")
+    return "/".join(a[:-3])
 
 @pytest.fixture(scope='session')
 def appname():
@@ -36,27 +45,52 @@ def appname():
     # sys.path.insert(1, os.path.join(os.getcwd(), 'applications', appname))
     return appname
 
+TEST_DB_DIR = os.path.join(get_web2py_path(), "applications", appname(), "databases", "test")
+
+@pytest.fixture(scope="session", autouse=True)
+def run_around_tests():
+    # Code that will run before your test, for example:
+
+    pytest.web2py_environment = os.environ.copy()
+
+    web2pytest.set_test_environment(pytest.web2py_environment)
+
+    if not os.path.exists(TEST_DB_DIR):
+        os.makedirs(TEST_DB_DIR)
+
+    cmd = "python3 {web2py_executable} -i localhost --nogui --debug=0 -p {port} -a 'supersekret' &> web2py.log &".format(
+        web2py_executable=os.path.join(get_web2py_path(), "web2py.py"),
+        port=WEB2PY_TEST_PORT
+    )
+
+    pytest.web2py_process = subprocess.Popen(cmd, stdout=subprocess.PIPE,
+                           shell=True, preexec_fn=os.setsid, env=pytest.web2py_environment)
+    sleep(5)
+    # request for populate DB and avoid sqlite errors
+    with urllib.request.urlopen(baseurl(appname())) as response:
+        response.read()
+
+def pytest_sessionfinish(session, exitstatus):
+    """ whole test run finishes. """
+    os.killpg(os.getpgid(pytest.web2py_process.pid), signal.SIGTERM)
+    sleep(5)
+    web2pytest.close_test_environment(pytest.web2py_environment)
+    if os.path.exists(TEST_DB_DIR):
+        shutil.rmtree(TEST_DB_DIR)
+
+@pytest.fixture(scope='session')
+def baseurl(appname):
+    '''The base url to call your application.
+    Change you port number as necessary.
+    '''
+
+    return 'http://localhost:%s/%s' % (WEB2PY_TEST_PORT, appname)
 
 @pytest.fixture(scope='session', autouse=True)
 def create_database(web2py):
     # import testdb
     db = web2py.db
     # testdb.fill_tables(db)
-
-
-@pytest.fixture(scope='session', autouse=True)
-def create_testfile_to_application(request, appname):
-    '''Creates a temp file to tell application she's running under a
-    test environment.
-    Usually you will want to create your database in memory to speed up
-    your tests and not change your development database.
-    This fixture is automatically run by py.test at session level. So, there's
-    no overhad to test performance.
-    '''
-    from web2pytest import web2pytest
-    web2pytest.create_testfile(appname)
-
-    request.addfinalizer(web2pytest.delete_testfile)
 
 
 # @pytest.fixture(autouse=True)
