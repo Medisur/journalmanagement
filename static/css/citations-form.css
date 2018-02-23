@@ -1,0 +1,31 @@
+
+#citation-preview-container .csl-left-margin {
+    display: none;
+}
+
+#citations-list .csl-bib-body {
+    display: table;
+    width: 100%;
+}
+
+.csl-bib-body > br {
+    display: none;
+}
+
+#citations-list .csl-entry {
+    display: table-row;
+}
+
+#citations-list .csl-left-margin, #citations-list .csl-right-inline, #citations-list .citation-controls {
+    display: table-cell;
+    padding: 3px 10px;
+    border: 1px solid #999999;
+}
+
+.citation-edit:hover, .citation-remove:hover{
+    cursor: pointer;
+}
+
+.citation-controls {
+    min-width: 55px;
+}
