@@ -42,6 +42,7 @@ def _on_citation_define(table):
     pass
 
 db.define_table('citation',
+                Field('article', 'reference article'),
                 Field('full_text', 'string', requires=IS_NOT_EMPTY(), label=T('Text')),
                 on_define=_on_citation_define,
                 )

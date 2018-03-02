@@ -1,0 +1,10 @@
+{{extend 'layout.html'}}
+<h2>
+    {{=journal.title}}
+</h2>
+{{#=BEAUTIFY(journal)}}
+<h3>{{=T('Issues')}}</h3>
+{{=LOAD('issue', 'grid.load', vars={'journal_id':journal.id})}}
+
+<h3>{{=T('Sections')}}</h3>
+{{=LOAD('section', 'grid.load', vars={'journal_id':journal.id})}}

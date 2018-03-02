@@ -1,5 +1,6 @@
 {{extend 'layout.html'}}
 <h2>
-    Formulario con Metadatos de Articulo
+    {{=T('Journals')}}
 </h2>
-{{=form}}
+
+{{=LOAD('journal', 'grid.load')}}

@@ -36,7 +36,8 @@ configuration = AppConfig(reload=True, configfile=config_file)
 db = DAL(configuration.get('db.uri'),
          pool_size=configuration.get('db.pool_size'),
          migrate_enabled=configuration.get('db.migrate'),
-         check_reserved=['all'],
+         check_reserved=['mysql', 'sqlite', 'postgres'],
+         lazy_tables=True,
          folder= os.path.join(request.folder,"databases", "test") if is_test_environment else None
          )
 
@@ -142,3 +143,5 @@ if configuration.get('scheduler.enabled'):
 # after defining tables, uncomment below to enable auditing
 # -------------------------------------------------------------------------
 # auth.enable_record_versioning(db)
+
+GROUP_ADMIN = 'Admin'

@@ -1,0 +1,7 @@
+{{extend 'layout.html'}}
+<h2>
+    v{{=issue.volume}}n{{=issue.issue}}
+</h2>
+{{#=BEAUTIFY(journal)}}
+<h3>{{=T('Articles')}}</h3>
+{{=LOAD('article', 'grid.load', vars={'issue_id':issue.id})}}
