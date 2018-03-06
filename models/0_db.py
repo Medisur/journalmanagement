@@ -6,7 +6,7 @@
 # -------------------------------------------------------------------------
 import os
 
-from applications.journalmanagement.modules.web2pytest import web2pytest
+from web2pytest import web2pytest
 from gluon.contrib.appconfig import AppConfig
 from gluon.tools import Auth
 
