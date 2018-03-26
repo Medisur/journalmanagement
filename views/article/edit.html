@@ -1,3 +1,8 @@
+{{
+response.files.insert(6, URL('static', 'js/citation-0.3.3.min.js'))
+#response.files.insert(6, URL('static', 'js/vue.js'))
+response.files.insert(6, URL('static', 'css/citations-form.css'))
+}}
 {{extend 'layout.html'}}
 <h2>
     {{=article.title}}
@@ -28,6 +33,6 @@
       Article Body
   </div>
   <div class="tab-pane fade" id="citations" role="tabpanel" aria-labelledby="citations-tab">
-      Article Citations
+      {{=LOAD('citation', 'article_citations.load', vars={'article_id':article.id})}}
   </div>
 </div>

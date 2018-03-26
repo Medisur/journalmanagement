@@ -34,19 +34,6 @@ def _add_citation_parts(row, parts):
             if not validation_data.id:
                 raise HTTP(503, validation_data)
 
-
-def _on_citation_define(table):
-    table.csl_object = Field.Virtual('csl_object', _csl_object)
-    table.parts = Field.Virtual('parts', _citation_parts)
-    table.add_parts = Field.Method(_add_citation_parts)
-    pass
-
-db.define_table('citation',
-                Field('article', 'reference article'),
-                Field('full_text', 'string', requires=IS_NOT_EMPTY(), label=T('Text')),
-                on_define=_on_citation_define,
-                )
-
 def to_csl_object(vars):
     object = {}
     object['id'] = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(10))
@@ -89,3 +76,19 @@ def to_csl_object(vars):
         #     vars[key] = {"type":vars[key]}
         object[key]=str(vars[key])
     return object
+
+def _on_citation_define(table):
+
+    table.csl_object = Field.Virtual('csl_object', _csl_object)
+    table.parts = Field.Virtual('parts', _citation_parts)
+    table.add_parts = Field.Method(_add_citation_parts)
+
+    table.article.requires = IS_IN_DB(db, db.article.id)
+
+
+db.define_table('citation',
+                Field('article', 'reference article'),
+                Field('full_text', 'string', requires=IS_NOT_EMPTY(), label=T('Text')),
+                on_define=_on_citation_define,
+                )
+

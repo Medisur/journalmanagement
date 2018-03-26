@@ -1,12 +1,7 @@
-{{
-response.files.insert(6, URL('static', 'js/citation-0.3.3.min.js'))
-#response.files.insert(6, URL('static', 'js/vue.js'))
-response.files.insert(6, URL('static', 'css/citations-form.css'))
-}}
-{{extend 'layout.html'}}
+{{#extend 'layout.html'}}
 
 
-    <div id="citations-app" data-citations-format="vancouver" data-citations-api-url="{{=URL('api', host=True)}}" class="container">
+    <div id="citations-app" data-citations-format="vancouver" data-citations-api-url="{{=URL('api', host=True, extension=False)}}" data-article-id="{{=article_id}}" class="container">
 
       <div class="row">
         <div class="col-md-12">
@@ -173,6 +168,7 @@ response.files.insert(6, URL('static', 'css/citations-form.css'))
 
             <form id="frmCitation" class="form-horizontal">
               <input name="id" type="hidden">
+              <input name="article" type="hidden" value="{{=article_id}}">
               <input name="type" type="hidden">
               <input name="_full_text" type="hidden">
               <div id="citations-parts-container"></div>

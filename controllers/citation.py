@@ -6,6 +6,11 @@ CITATIONS_API_NAME = "Citations"
 def index():
     return dict(message="hello from citation.py")
 
+def article_citations():
+    # article_id = request.vars('article_id', cast=int) or redirect(URL('index'))
+    article_id = request.vars['article_id'] or redirect(URL('index'))
+    return dict(article_id=article_id)
+
 def new():
 
     # import json
@@ -49,27 +54,21 @@ def api():
 
     def GET(*args, **vars):
 
-        if args[0] == 'citations':
-            citations = db(db.citation).select()
-            # for citation in citations:
-            #     print("akak")
-            #     print(citation.part)
+        if args[0] == 'citations' and args[1]:
+            citations = db(db.citation.article == int(args[1])).select(db.citation.ALL)
             return json_response(CITATIONS_API_NAME, citations)
-            # return dict(citations=citations)
 
         if args[0] == 'to_csl_json':
             return json_response(CITATIONS_API_NAME, to_csl_object(vars))
-            # return json([to_csl_object(vars)])
 
         return dict()
 
     def POST(*args, **vars):
 
         if args[0] == 'citation':
-            validation_data = db.citation.validate_and_insert(full_text=vars['_full_text'])
+            validation_data = db.citation.validate_and_insert(article=vars['article'], full_text=vars['_full_text'])
             if not validation_data.id:
                 return json_response(CITATIONS_API_NAME, validation_data, 503)
-                # raise HTTP(503, json(validation_data))
             new_citation_id = validation_data.id
             citation = db(db.citation.id == validation_data.id).select().first()
             try:
