@@ -49,7 +49,7 @@ TEST_DB_DIR = os.path.join(get_web2py_path(), "applications", appname(), "databa
 
 @pytest.fixture(scope="session", autouse=True)
 def run_around_tests():
-    # Code that will run before your test, for example:
+    # Code that will run before the test:
 
     pytest.web2py_environment = os.environ.copy()
 
