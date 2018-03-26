@@ -49,8 +49,7 @@ TEST_DB_DIR = os.path.join(get_web2py_path(), "applications", appname(), "databa
 
 @pytest.fixture(scope="session", autouse=True)
 def run_around_tests():
-    # Code that will run before your test, for example:
-    print("akak1")
+    # Code that will run before the test:
 
     pytest.web2py_environment = os.environ.copy()
 
@@ -70,7 +69,6 @@ def run_around_tests():
     # request for populate DB and avoid sqlite errors
     with urllib.request.urlopen(baseurl(appname())) as response:
         response.read()
-    print("akak2")
 
 def pytest_sessionfinish(session, exitstatus):
     """ whole test run finishes. """
