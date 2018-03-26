@@ -6,4 +6,4 @@ def test_index_exists(client):
 
     client.get('/default/index') # get a page
     assert client.status == 200
-    assert "formulario con metadatos de articulo" in client.text.lower()
+    assert "journals" in client.text.lower()
