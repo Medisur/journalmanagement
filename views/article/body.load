@@ -1,0 +1,21 @@
+
+<style>
+      @import '{{=URL('static', 'texture/texture.css')}}';
+      @import '{{=URL('static', 'texture/texture-reset.css')}}';
+      @import '{{=URL('static', 'texture/substance/dist/substance.css')}}';
+      @import '{{=URL('static', 'texture/texture-pagestyle.css')}}';
+      @import '{{=URL('static', 'texture/katex/katex.min.css')}};
+      @import '{{=URL('static', 'texture/font-awesome/css/font-awesome.min.css')}}';
+      body { overflow: hidden; }
+      html, body { height: 100%; }
+      .sc-app {
+        height: 100%;
+      }
+    </style>
+    <script type="text/javascript" src="{{=URL('static', 'texture/substance/dist/substance.js')}}"></script>
+    <script type="text/javascript" src="{{=URL('static', 'texture/katex/katex.js')}}"></script>
+    <script type="text/javascript" src="{{=URL('static', 'texture/texture.js')}}"></script>
+    <script type="text/javascript" src="{{=URL('static', 'texture/vfs.js')}}"></script>
+    <script type="text/javascript" src="{{=URL('static', 'texture/editor.js')}}"></script>
+
+

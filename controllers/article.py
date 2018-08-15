@@ -58,6 +58,9 @@ def grid():
 
     return dict(grid=grid)
 
+def body():
+    return dict(hello='hello')
+
 def export_jats_xml():
     article_id = request.args(0, cast=int) or redirect(URL('index'))
     article = db.article(article_id)
